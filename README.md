@@ -34,6 +34,20 @@ CLI-Anything: Bridging the Gap Between AI Agents and the World's Software</stron
 
 ---
 
+## 📰 News
+
+> Thanks to all invaluable efforts from the community! More updates continuously on the way everyday..
+
+| Date | Update |
+|------|--------|
+| **2026-03-15** | Support for OpenClaw from the Community! Merged Windows cygpath guard to ensure CLI-Anything works reliably in Windows bash environments without cygpath. Community contributions continue to strengthen cross-platform support. |
+| **2026-03-14** | Fixed a GIMP Script-Fu path injection vulnerability and added Japanese README translation. OpenCode version requirements documented alongside several Windows compatibility improvements. |
+| **2026-03-13** | Qodercli plugin officially merged as a community contribution with dedicated setup scripts. Codex skill gained a Windows install script, and placeholder URLs were cleaned up across the project. |
+| **2026-03-12** | Codex skill integration landed, bringing CLI-Anything to yet another AI coding platform. Qodercli support was also introduced, and documentation was updated with limitations and experimental labels. |
+| **2026-03-11** | Zoom video conferencing harness added as the 11th supported application. Multiple community fixes shipped for Shotcut auto-save, LibreOffice Windows/macOS backend, and OpenCode support. |
+
+---
+
 ## 🤔 Why CLI?
 
 CLI is the universal interface for both humans and AI agents:
@@ -56,7 +70,7 @@ CLI is the universal interface for both humans and AI agents:
 
 - **Python 3.10+**
 - Target software installed (e.g., GIMP, Blender, LibreOffice, or your own application)
-- A supported AI coding agent: [Claude Code](#-claude-code) | [OpenCode](#-opencode) | [Codex](#-codex) | [Qodercli](#-qodercli) | [More Platforms](#-more-platforms-coming-soon)
+- A supported AI coding agent: [Claude Code](#-claude-code) | [OpenClaw](#-openclaw) | [OpenCode](#-opencode) | [Codex](#-codex) | [Qodercli](#-qodercli) | [More Platforms](#-more-platforms-coming-soon)
 
 ### Pick Your Platform
 
@@ -81,7 +95,7 @@ CLI-Anything is distributed as a Claude Code plugin marketplace hosted on GitHub
 
 That's it. The plugin is now available in your Claude Code session.
 
-**Windows note:** Claude Code runs shell commands via `bash`. On Windows, install Git for Windows (includes `bash` and
+> **Note for Win Users:** Claude Code runs shell commands via `bash`. On Windows, install Git for Windows (includes `bash` and
 `cygpath`) or use WSL; otherwise commands may fail with `cygpath: command not found`.
 
 **Step 3: Build a CLI in One Command**
@@ -142,7 +156,7 @@ cp -r CLI-Anything/cli-anything-plugin ~/.claude/plugins/cli-anything
 
 **Step 1: Install the Commands**
 
-**Note:** Please upgrade to the latest OpenCode. Older versions may use a different commands path.
+> **Note:** Please upgrade to the latest OpenCode. Older versions may use a different commands path.
 
 Copy the CLI-Anything commands **and** `HARNESS.md` to your OpenCode commands directory:
 
@@ -207,6 +221,33 @@ This registers the cli-anything plugin in `~/.qoder.json`. Start a new Qodercli 
 /cli-anything:refine ./gimp "batch processing and filters"
 /cli-anything:validate ./gimp
 ```
+</details>
+
+<details>
+
+<summary><h4 id="-openclaw">⚡ OpenClaw <sup><code>Community</code></sup></h4></summary>
+
+**Step 1: Install the Skill**
+
+CLI-Anything provides a native OpenClaw `SKILL.md` file. Copy it to your OpenClaw skills directory:
+
+```bash
+# Clone the repo
+git clone https://github.com/HKUDS/CLI-Anything.git
+
+# Install to the global skills folder
+mkdir -p ~/.openclaw/skills/cli-anything
+cp CLI-Anything/openclaw-skill/SKILL.md ~/.openclaw/skills/cli-anything/SKILL.md
+```
+
+**Step 2: Build a CLI**
+
+Now you can invoke the skill inside OpenClaw:
+
+`@cli-anything build a CLI for ./gimp`
+
+The skill follows the same 7-phase methodology as Claude Code and OpenCode.
+
 </details>
 
 <details>
