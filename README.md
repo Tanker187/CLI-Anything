@@ -7,8 +7,8 @@ CLI-Anything: Bridging the Gap Between AI Agents and the World's Software</stron
 
 <p align="center">
   <a href="#-quick-start"><img src="https://img.shields.io/badge/Quick_Start-5_min-blue?style=for-the-badge" alt="Quick Start"></a>
-  <a href="#-demonstrations"><img src="https://img.shields.io/badge/Demos-11_Apps-green?style=for-the-badge" alt="Demos"></a>
-  <a href="#-test-results"><img src="https://img.shields.io/badge/Tests-1%2C508_Passing-brightgreen?style=for-the-badge" alt="Tests"></a>
+  <a href="#-demonstrations"><img src="https://img.shields.io/badge/Demos-13_Apps-green?style=for-the-badge" alt="Demos"></a>
+  <a href="#-test-results"><img src="https://img.shields.io/badge/Tests-1%2C588_Passing-brightgreen?style=for-the-badge" alt="Tests"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License"></a>
 </p>
 
@@ -38,13 +38,22 @@ CLI-Anything: Bridging the Gap Between AI Agents and the World's Software</stron
 
 > Thanks to all invaluable efforts from the community! More updates continuously on the way everyday..
 
-| Date | Update |
-|------|--------|
-| **2026-03-15** | Support for OpenClaw from the Community! Merged Windows cygpath guard to ensure CLI-Anything works reliably in Windows bash environments without cygpath. Community contributions continue to strengthen cross-platform support. |
-| **2026-03-14** | Fixed a GIMP Script-Fu path injection vulnerability and added Japanese README translation. OpenCode version requirements documented alongside several Windows compatibility improvements. |
-| **2026-03-13** | Qodercli plugin officially merged as a community contribution with dedicated setup scripts. Codex skill gained a Windows install script, and placeholder URLs were cleaned up across the project. |
-| **2026-03-12** | Codex skill integration landed, bringing CLI-Anything to yet another AI coding platform. Qodercli support was also introduced, and documentation was updated with limitations and experimental labels. |
-| **2026-03-11** | Zoom video conferencing harness added as the 11th supported application. Multiple community fixes shipped for Shotcut auto-save, LibreOffice Windows/macOS backend, and OpenCode support. |
+- **2026-03-16** 🤖 Added **SKILL.md generation** (Phase 6.5) — every generated CLI now ships with an AI-discoverable skill definition inside the Python package. ReplSkin auto-detects the skill file after `pip install`, and the REPL banner displays the absolute path for agents. Includes `skill_generator.py`, Jinja2 template, `package_data` in all setup.py files, and 51 new tests.
+
+- **2026-03-15** 🐾 Support for **OpenClaw** from the community! Merged Windows `cygpath` guard to ensure CLI-Anything works reliably in Windows bash environments. Community contributions continue to strengthen cross-platform support.
+
+- **2026-03-14** 🔒 Fixed a GIMP Script-Fu path injection vulnerability and added **Japanese README** translation. OpenCode version requirements documented alongside several Windows compatibility improvements.
+
+<details>
+<summary>Earlier news</summary>
+
+- **2026-03-13** 🔌 **Qodercli** plugin officially merged as a community contribution with dedicated setup scripts. Codex skill gained a Windows install script, and placeholder URLs were cleaned up across the project.
+
+- **2026-03-12** 📦 **Codex skill** integration landed, bringing CLI-Anything to yet another AI coding platform. Qodercli support was also introduced, and documentation was updated with limitations and experimental labels.
+
+- **2026-03-11** 📞 **Zoom** video conferencing harness added as the 11th supported application. Multiple community fixes shipped for Shotcut auto-save, LibreOffice Windows/macOS backend, and OpenCode support.
+
+</details>
 
 ---
 
@@ -202,6 +211,29 @@ The command runs as a subtask and follows the same 7-phase methodology as Claude
 </details>
 
 <details>
+<summary><h4 id="-goose">⚡ Goose (Desktop / CLI) <sup><code>Experimental</code></sup> <sup><code>Community</code></sup></h4></summary>
+
+**Step 1: Install Goose**
+
+Install Goose (Desktop or CLI) using the official Goose instructions for your OS.
+
+**Step 2: Configure a CLI Provider**
+
+Configure Goose to use a CLI provider such as Claude Code, and make sure that CLI is installed and authenticated.
+
+**Step 3: Use CLI-Anything in a Goose Session**
+
+Once Goose is configured, start a session and use the same CLI-Anything commands described above for Claude Code, for example:
+
+```bash
+/cli-anything:cli-anything ./gimp
+/cli-anything:refine ./gimp "batch processing and filters"
+```
+
+> Note: When Goose runs through a CLI provider, it uses that provider's capabilities and command format.
+</details>
+
+<details>
 
 <summary><h4 id="-qodercli">⚡ Qodercli <sup><code>Community</code></sup></h4></summary>
 
@@ -319,6 +351,8 @@ cli-anything-gimp --json layer add -n "Background" --type solid --color "#1a1a2e
 cli-anything-gimp
 ```
 
+Each installed CLI ships with a [`SKILL.md`](#-skillmd-generation) inside the Python package (`cli_anything/<software>/skills/SKILL.md`). The REPL banner automatically displays the absolute path to this file so AI agents know exactly where to read the skill definition. No extra configuration needed — `pip install` makes the skill discoverable.
+
 ---
 
 ## 💡 CLI-Anything's Vision: Building Agent-Native Software
@@ -361,7 +395,7 @@ AI agents are great at reasoning but terrible at using real professional softwar
 | 💸 "UI automation breaks constantly" | No screenshots, no clicking, no RPA fragility. Pure command-line reliability with structured interfaces |
 | 📊 "Agents need structured data" | Built-in JSON output for seamless agent consumption + human-readable formats for debugging |
 | 🔧 "Custom integrations are expensive" | One Claude plugin auto-generates CLIs for ANY codebase through proven 7-phase pipeline |
-| ⚡ "Prototype vs Production gap" | 1,508+ tests with real software validation. Battle-tested across 11 major applications |
+| ⚡ "Prototype vs Production gap" | 1,588+ tests with real software validation. Battle-tested across 13 major applications |
 
 ---
 
@@ -442,6 +476,18 @@ All CLIs organized under cli_anything.* namespace — conflict-free, pip-install
 </tr>
 </table>
 
+### 🤖 SKILL.md Generation
+
+Each generated CLI includes a `SKILL.md` file inside the Python package at `cli_anything/<software>/skills/SKILL.md`. This self-contained skill definition enables AI agents to discover and use the CLI through Claude Code's skill system or other agent frameworks.
+
+**What SKILL.md provides:**
+- **YAML frontmatter** with name and description for agent skill discovery
+- **Command groups** with all available subcommands documented
+- **Usage examples** for common workflows
+- **Agent-specific guidance** for JSON output, error handling, and programmatic use
+
+SKILL.md files are auto-generated during Phase 6.5 of the pipeline using `skill_generator.py`, which extracts metadata directly from the CLI's Click decorators, setup.py, and README. Because the file lives inside the package, it is installed alongside the CLI via `pip install` and auto-detected by the REPL banner — agents can read the absolute path displayed at startup.
+
 ---
 
 ## 🎬 Demonstrations
@@ -450,7 +496,7 @@ All CLIs organized under cli_anything.* namespace — conflict-free, pip-install
 CLI-Anything works on any software with a codebase — no domain restrictions or architectural limitations.
 
 ### 🏭 Professional-Grade Testing
-Tested across 11 diverse, complex applications spanning creative, productivity, communication, diagramming, and AI content generation domains previously inaccessible to AI agents.
+Tested across 13 diverse, complex applications spanning creative, productivity, communication, diagramming, AI image generation, and AI content generation domains previously inaccessible to AI agents.
 
 ### 🎨 Diverse Domain Coverage
 From creative workflows (image editing, 3D modeling, vector graphics) to production tools (audio, office, live streaming, video editing).
@@ -537,6 +583,13 @@ Each application received complete, production-ready CLI interfaces — not demo
 <td align="center">✅ 138</td>
 </tr>
 <tr>
+<td align="center"><strong>🧜 Mermaid Live Editor</strong></td>
+<td>Diagramming</td>
+<td><code>cli-anything-mermaid</code></td>
+<td>Mermaid state + mermaid.ink renderer</td>
+<td align="center">✅ 10</td>
+</tr>
+<tr>
 <td align="center"><strong>✨ AnyGen</strong></td>
 <td>AI Content Generation</td>
 <td><code>cli-anything-anygen</code></td>
@@ -544,12 +597,19 @@ Each application received complete, production-ready CLI interfaces — not demo
 <td align="center">✅ 50</td>
 </tr>
 <tr>
+<td align="center"><strong>🖼️ ComfyUI</strong></td>
+<td>AI Image Generation</td>
+<td><code>cli-anything-comfyui</code></td>
+<td>ComfyUI REST API</td>
+<td align="center">✅ 70</td>
+</tr>
+<tr>
 <td align="center" colspan="4"><strong>Total</strong></td>
-<td align="center"><strong>✅ 1,508</strong></td>
+<td align="center"><strong>✅ 1,588</strong></td>
 </tr>
 </table>
 
-> **100% pass rate** across all 1,508 tests — 1,073 unit tests + 435 end-to-end tests.
+> **100% pass rate** across all 1,588 tests — 1,138 unit tests + 450 end-to-end tests.
 
 ---
 
@@ -576,9 +636,11 @@ kdenlive      155 passed  ✅   (111 unit + 44 e2e)
 shotcut       154 passed  ✅   (110 unit + 44 e2e)
 zoom           22 passed  ✅   (22 unit + 0 e2e)
 drawio        138 passed  ✅   (116 unit + 22 e2e)
+mermaid        10 passed  ✅   (5 unit + 5 e2e)
 anygen         50 passed  ✅   (40 unit + 10 e2e)
+comfyui        70 passed  ✅   (60 unit + 10 e2e)
 ──────────────────────────────────────────────────────────────────────────────
-TOTAL        1,508 passed  ✅   100% pass rate
+TOTAL        1,588 passed  ✅   100% pass rate
 ```
 
 ---
@@ -637,7 +699,9 @@ cli-anything/
 ├── 🎬 shotcut/agent-harness/            # Shotcut CLI (154 tests)
 ├── 📞 zoom/agent-harness/               # Zoom CLI (22 tests)
 ├── 📐 drawio/agent-harness/             # Draw.io CLI (138 tests)
-└── ✨ anygen/agent-harness/             # AnyGen CLI (50 tests)
+├── 🧜 mermaid/agent-harness/            # Mermaid Live Editor CLI (10 tests)
+├── ✨ anygen/agent-harness/             # AnyGen CLI (50 tests)
+└── 🖼️ comfyui/agent-harness/            # ComfyUI CLI (70 tests)
 ```
 
 Each `agent-harness/` contains an installable Python package under `cli_anything.<software>/` with Click CLI, core modules, utils (including `repl_skin.py` and backend wrapper), and comprehensive tests.
@@ -738,7 +802,7 @@ HARNESS.md is our definitive SOP for making any software agent-accessible via au
 
 It encodes proven patterns and methodologies refined through automated generation processes.
 
-The playbook distills key insights from successfully building all 11 diverse, production-ready harnesses.
+The playbook distills key insights from successfully building all 13 diverse, production-ready harnesses.
 
 ### Critical Lessons
 
@@ -818,7 +882,7 @@ We welcome contributions! CLI-Anything is designed to be extensible:
 - [ ] Community-contributed CLI harnesses for internal/custom software
 - [ ] Integration with additional agent frameworks beyond Claude Code
 - [ ] Support packaging APIs for closed-source software and web services into CLIs
-- [ ] Produce SKILL.md alongside the CLI for agent skill discovery and orchestration
+- [x] Produce SKILL.md alongside the CLI for agent skill discovery and orchestration
 
 ---
 
@@ -863,7 +927,7 @@ MIT License — free to use, modify, and distribute.
 
 **CLI-Anything** — *Make any software with a codebase Agent-native.*
 
-<sub>A methodology for the age of AI agents | 11 professional software demos | 1,508 passing tests</sub>
+<sub>A methodology for the age of AI agents | 13 professional software demos | 1,588 passing tests</sub>
 
 <br>
 

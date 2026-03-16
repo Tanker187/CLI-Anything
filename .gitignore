@@ -16,9 +16,10 @@
 !/assets/
 !/.claude-plugin/
 
-# Step 3: Allow cli-anything-plugin entirely
+# Step 3: Allow cli-anything-plugin, codex-skill, and skill_generation tests
 !/cli-anything-plugin/
 !/codex-skill/
+!/skill_generation/
 !/openclaw-skill/
 
 # Step 4: Allow each software dir (top level only)
@@ -33,6 +34,7 @@
 !/anygen/
 !/zoom/
 !/drawio/
+!/mermaid/
 
 # Step 5: Inside each software dir, ignore everything (including dotfiles)
 /gimp/*
@@ -57,6 +59,8 @@
 /zoom/.*
 /drawio/*
 /drawio/.*
+/mermaid/*
+/mermaid/.*
 
 # Step 6: ...except agent-harness/
 !/gimp/agent-harness/
@@ -70,6 +74,7 @@
 !/anygen/agent-harness/
 !/zoom/agent-harness/
 !/drawio/agent-harness/
+!/mermaid/agent-harness/
 
 # Step 7: Ignore build artifacts within allowed dirs
 **/__pycache__/

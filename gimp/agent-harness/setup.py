@@ -16,7 +16,7 @@ setup(
     version="1.0.0",
     author="cli-anything contributors",
     author_email="",
-    description="CLI harness for GIMP - Raster image processing via gimp -i -b (batch mode). Requires: gimp (apt install gimp)",
+    description="CLI harness for GIMP - Raster image processing via gimp -i -b (batch mode). Recommended: gimp (apt install gimp)",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/HKUDS/CLI-Anything",
@@ -35,19 +35,26 @@ setup(
     python_requires=">=3.10",
     install_requires=[
         "click>=8.0.0",
-        "Pillow>=10.0.0",
         "prompt-toolkit>=3.0.0",
     ],
     extras_require={
+        "pillow": [
+            "Pillow>=10.0.0",
+        ],
         "dev": [
             "pytest>=7.0.0",
             "pytest-cov>=4.0.0",
+            "Pillow>=10.0.0",
+            "numpy>=1.24.0",
         ],
     },
     entry_points={
         "console_scripts": [
             "cli-anything-gimp=cli_anything.gimp.gimp_cli:main",
         ],
+    },
+    package_data={
+        "cli_anything.gimp": ["skills/*.md"],
     },
     include_package_data=True,
     zip_safe=False,
