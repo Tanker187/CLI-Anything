@@ -13,8 +13,10 @@
 # Step 2: Allow .gitignore, README, assets, and marketplace
 !.gitignore
 !/README.md
+!/CONTRIBUTING.md
 !/assets/
 !/.claude-plugin/
+!/.github/
 
 # Step 3: Allow cli-anything-plugin, codex-skill, and skill_generation tests
 !/cli-anything-plugin/
@@ -99,4 +101,10 @@ assets/gen_typing_gif.py
 !README_CN.md
 !opencode-commands/
 !/qoder-plugin/
+
+# Step 10: Allow CLI Hub registry and frontend
+!/registry.json
+!/docs/
+/docs/*
+!/docs/hub/
 
