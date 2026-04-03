@@ -2,9 +2,23 @@
   "meta": {
     "repo": "https://github.com/HKUDS/CLI-Anything",
     "description": "CLI-Hub — Agent-native stateful CLI interfaces for softwares, codebases, and Web Services",
-    "updated": "2026-03-18"
+    "updated": "2026-03-31"
   },
   "clis": [
+    {
+      "name": "wiremock",
+      "display_name": "WireMock",
+      "version": "0.1.0",
+      "description": "HTTP mock server management — create stubs, inspect requests, record traffic, and manage scenarios via WireMock REST API",
+      "requires": "WireMock server running (java -jar wiremock-standalone.jar)",
+      "homepage": "https://wiremock.org",
+      "install_cmd": "pip install git+https://github.com/HKUDS/CLI-Anything.git#subdirectory=wiremock/agent-harness",
+      "entry_point": "cli-anything-wiremock",
+      "skill_md": "wiremock/agent-harness/cli_anything/wiremock/skills/SKILL.md",
+      "category": "testing",
+      "contributor": "fabiomantel",
+      "contributor_url": "https://github.com/fabiomantel"
+    },
     {
       "name": "anygen",
       "display_name": "AnyGen",
@@ -52,7 +66,7 @@
       "display_name": "Blender",
       "version": "1.0.0",
       "description": "3D modeling, animation, and rendering via blender --background --python",
-      "requires": "blender",
+      "requires": "blender >= 4.2",
       "homepage": "https://www.blender.org",
       "install_cmd": "pip install git+https://github.com/HKUDS/CLI-Anything.git#subdirectory=blender/agent-harness",
       "entry_point": "cli-anything-blender",
@@ -172,6 +186,20 @@
       "category": "office",
       "contributor": "CLI-Anything-Team",
       "contributor_url": "https://github.com/HKUDS/CLI-Anything"
+    },
+    {
+      "name": "zotero",
+      "display_name": "Zotero",
+      "version": "0.1.0",
+      "description": "Reference management via local Zotero SQLite, connector, and Local API",
+      "requires": "Zotero desktop app",
+      "homepage": "https://www.zotero.org",
+      "install_cmd": "pip install git+https://github.com/HKUDS/CLI-Anything.git#subdirectory=zotero/agent-harness",
+      "entry_point": "cli-anything-zotero",
+      "skill_md": "zotero/agent-harness/cli_anything/zotero/skills/SKILL.md",
+      "category": "office",
+      "contributor": "zhiwuyazhe_fjr",
+      "contributor_url": "https://github.com/zhiwuyazhe_fjr"
     },
     {
       "name": "mubu",
@@ -342,6 +370,20 @@
       "contributor_url": "https://github.com/voidfreud"
     },
     {
+      "name": "slay_the_spire_ii",
+      "display_name": "Slay the Spire II",
+      "version": "1.0.0",
+      "description": "Control the real Slay the Spire 2 game via local STS2_Bridge HTTP API",
+      "requires": "Slay the Spire 2 (Steam) with STS2_Bridge mod enabled",
+      "homepage": "https://github.com/HKUDS/CLI-Anything/tree/main/slay_the_spire_ii",
+      "install_cmd": "pip install git+https://github.com/HKUDS/CLI-Anything.git#subdirectory=slay_the_spire_ii/agent-harness",
+      "entry_point": "cli-anything-sts2",
+      "skill_md": "slay_the_spire_ii/agent-harness/cli_anything/slay_the_spire_ii/skills/SKILL.md",
+      "category": "game",
+      "contributor": "TianyuFan0504",
+      "contributor_url": "https://github.com/TianyuFan0504"
+    },
+    {
       "name": "rms",
       "display_name": "Teltonika RMS",
       "version": "1.0.0",
@@ -368,6 +410,62 @@
       "category": "graphics",
       "contributor": "levishilf",
       "contributor_url": "https://github.com/levishilf"
+    },
+    {
+      "name": "videocaptioner",
+      "display_name": "VideoCaptioner",
+      "version": "1.0.0",
+      "description": "AI-powered video captioning — transcribe speech, optimize/translate subtitles, burn styled subtitles into video",
+      "requires": "videocaptioner (pip install videocaptioner), ffmpeg",
+      "homepage": "https://github.com/WEIFENG2333/VideoCaptioner",
+      "install_cmd": "pip install git+https://github.com/HKUDS/CLI-Anything.git#subdirectory=videocaptioner/agent-harness",
+      "entry_point": "cli-anything-videocaptioner",
+      "skill_md": "videocaptioner/agent-harness/cli_anything/videocaptioner/skills/SKILL.md",
+      "category": "video",
+      "contributor": "WEIFENG2333",
+      "contributor_url": "https://github.com/WEIFENG2333"
+    },
+    {
+      "name": "intelwatch",
+      "display_name": "Intelwatch",
+      "version": "1.0.0",
+      "description": "Competitive intelligence, M&A due diligence, and OSINT directly from your terminal.",
+      "requires": "Node.js >=18",
+      "homepage": "https://github.com/ashroth/intelwatch",
+      "install_cmd": "pip install git+https://github.com/HKUDS/CLI-Anything.git#subdirectory=intelwatch/agent-harness",
+      "entry_point": "cli-anything-intelwatch",
+      "skill_md": "intelwatch/agent-harness/cli_anything/intelwatch/skills/SKILL.md",
+      "category": "osint",
+      "contributor": "ashroth",
+      "contributor_url": "https://github.com/ashroth"
+    },
+    {
+      "name": "clibrowser",
+      "display_name": "clibrowser",
+      "version": "0.1.0",
+      "description": "Zero-dependency CLI browser for AI agents with search, extraction, forms, RSS, crawling, auth, and WebMCP support",
+      "requires": "Rust toolchain (cargo) for source install, or manual binary download from GitHub Releases",
+      "homepage": "https://github.com/allthingssecurity/clibrowser",
+      "install_cmd": "cargo install --git https://github.com/allthingssecurity/clibrowser.git --tag v0.1.0 --locked",
+      "entry_point": "clibrowser",
+      "skill_md": null,
+      "category": "web",
+      "contributor": "allthingssecurity",
+      "contributor_url": "https://github.com/allthingssecurity"
+    },
+    {
+      "name": "cloudcompare",
+      "display_name": "CloudCompare",
+      "version": "1.0.0",
+      "description": "3D point cloud and mesh processing: load/save, color ops, normal estimation, Delaunay meshing, noise filtering, ICP registration, connected component segmentation",
+      "requires": "cloudcompare (CloudCompare application installed, e.g. via Flatpak or package manager)",
+      "homepage": "https://cloudcompare.org",
+      "install_cmd": "pip install git+https://github.com/HKUDS/CLI-Anything.git#subdirectory=cloudcompare/agent-harness",
+      "entry_point": "cli-anything-cloudcompare",
+      "skill_md": "cloudcompare/agent-harness/cli_anything/cloudcompare/skills/SKILL.md",
+      "category": "graphics",
+      "contributor": "Taeyoung96",
+      "contributor_url": "https://github.com/Taeyoung96"
     }
   ]
 }
