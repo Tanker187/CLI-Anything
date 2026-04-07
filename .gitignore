@@ -16,12 +16,15 @@
 !/CONTRIBUTING.md
 !/SECURITY.md
 !/assets/
+!/.pi-extension/
+/.pi-extension/cli-anything/node_modules
 !/.claude-plugin/
 !/.github/
 /.github/*
 !/.github/workflows/
 !/.github/scripts/
 !/.github/PULL_REQUEST_TEMPLATE.md
+!/.github/ISSUE_TEMPLATE/
 
 # Allow examples directory
 !/examples/
@@ -67,6 +70,7 @@
 !/zoom/
 !/sketch/
 !/drawio/
+!/godot/
 !/mermaid/
 !/comfyui/
 !/adguardhome/
@@ -81,6 +85,7 @@
 !/rms/
 !/renderdoc/
 !/cloudcompare/
+!/openscreen/
 
 # Step 5: Inside each software dir, ignore everything (including dotfiles)
 /gimp/*
@@ -111,6 +116,8 @@
 /sketch/.*
 /drawio/*
 /drawio/.*
+/godot/*
+/godot/.*
 /mermaid/*
 /mermaid/.*
 /comfyui/*
@@ -137,8 +144,12 @@
 /renderdoc/.*
 /cloudcompare/*
 /cloudcompare/.*
+/openscreen/*
+/openscreen/.*
 /wiremock/*
 /wiremock/.*
+/exa/*
+/exa/.*
 
 # Step 6: ...except agent-harness/
 !/gimp/agent-harness/
@@ -155,6 +166,7 @@
 !/zoom/agent-harness/
 !/sketch/agent-harness/
 !/drawio/agent-harness/
+!/godot/agent-harness/
 !/mermaid/agent-harness/
 !/comfyui/agent-harness/
 !/adguardhome/agent-harness/
@@ -170,8 +182,10 @@
 !/rms/agent-harness/
 !/renderdoc/agent-harness/
 !/cloudcompare/agent-harness/
+!/openscreen/agent-harness/
 !/wiremock/
 !/wiremock/agent-harness/
+!/exa/agent-harness/
 
 # Step 7: Ignore build artifacts within allowed dirs
 **/__pycache__/
@@ -207,3 +221,4 @@ assets/gen_typing_gif.py
 !/notebooklm/agent-harness/
 !/intelwatch/agent-harness/
 !/intelwatch/
+!/exa/
